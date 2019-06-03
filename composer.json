@@ -5,7 +5,9 @@
         "name": "iker",
         "email": "ikerkuadra@gmail.com"
     }],
-    "require": {},
+    "require": {
+        "twig/twig": "^2.11"
+    },
     "autoload": {
         "psr-4": {
             "App\\": "src/"
