@@ -1,0 +1,14 @@
+{
+    "name": "ikerk/proyecto-blogphp",
+    "description": "Practice blog",
+    "authors": [{
+        "name": "iker",
+        "email": "ikerkuadra@gmail.com"
+    }],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
