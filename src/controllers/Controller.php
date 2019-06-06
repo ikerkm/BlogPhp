@@ -17,7 +17,7 @@ abstract class Controller{
         $this->logger->info("Clase ".get_class($this)." cargada");
         $this->sumatorio = $this->container->get(Sumador::class);
     }
-    public abstract function index(DoctrineManager $doctrine);
+    public abstract function index();
     
    
 }

@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="users")
  */
 
- class User{
+ class User extends Entity{
 /**
  * @ORM\Id
  * @ORM\Column(type="integer")
@@ -45,6 +45,7 @@ protected $email;
 
   public function __construct(){
       $this->created_at=new \DateTime('now');
+      $this->updated_at=new \DateTime('now');
   }
   
  }

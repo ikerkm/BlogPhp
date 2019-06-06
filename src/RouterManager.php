@@ -54,7 +54,7 @@ class RouterManager
     {
             $route = $dispatcher->dispatch($requestMethod, $requestUri);
 
-            var_dump($route);
+  
             switch($route[0]){
                 case \FastRoute\Dispatcher::NOT_FOUND:
                    header("HTTP/1.0 404 Not Found");
