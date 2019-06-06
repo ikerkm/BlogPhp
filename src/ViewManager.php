@@ -8,12 +8,13 @@ use Twig;
     private $twig;
     public function __construct(){
         $loader= new \Twig\Loader\FilesystemLoader(dirname(__DIR__).'/templates');
+    
         $this-> twig = new \Twig\Environment($loader, [
             'cache' => dirname(__DIR__). '/cache/views'
         ]);
     }
 
-    public function render($view, $args=[]){
+   /* public function render($view, $args=[]){
         if($args !=null){
             extract($args,EXTR_SKIP);
         }
@@ -23,7 +24,7 @@ use Twig;
         }else{
             throw new \InvalidArgumentException();
         }
-    }
+    }*/
     public function renderTemplate($template,$args=[]){
         echo $this->twig->render($template,$args);
     }

@@ -4,6 +4,7 @@ use App\ViewManager;
 use App\LogManager;
 use App\Sumador;
 use DI\Container;
+use App\DoctrineManager;
 abstract class Controller{
     protected $container;
     protected $viewManager;
@@ -16,7 +17,7 @@ abstract class Controller{
         $this->logger->info("Clase ".get_class($this)." cargada");
         $this->sumatorio = $this->container->get(Sumador::class);
     }
-    public abstract function index();
+    public abstract function index(DoctrineManager $doctrine);
     
    
 }
