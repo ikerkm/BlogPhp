@@ -34,7 +34,8 @@ private $error;
      $this->error="El usuario no eiste";
        $this->viewManager->renderTemplate("Login.view.html",['error'=>$this->error,'email'=>$email]);
     }
-    $this->redirectTo('');
+    $this->sessionManager->put('user',$user->email);
+    $this->redirectTo('dashboard');
    // findBy(array($user->email ) );    findOneBy('\App\models\entities\User',$user->email) )   
   //  getRepository(User::class)->find(56);
     }

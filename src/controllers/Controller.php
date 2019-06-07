@@ -3,6 +3,7 @@ namespace App\controllers;
 use App\ViewManager;
 use App\LogManager;
 use App\Sumador;
+use App\SessionManager;
 use DI\Container;
 use App\DoctrineManager;
 abstract class Controller{
@@ -10,12 +11,14 @@ abstract class Controller{
     protected $viewManager;
     protected $logger;
     protected $sumatorio;
+    protected $sessionManager;
     public function __construct(Container $container){
         $this->container = $container;
         $this->viewManager = $this->container->get(ViewManager::class);
         $this->logger = $this->container->get(LogManager::class);
         $this->logger->info("Clase ".get_class($this)." cargada");
         $this->sumatorio = $this->container->get(Sumador::class);
+        $this->sessionManager = $this->container->get(SessionManager::class);
     }
     public abstract function index();
     public function redirectTo(string $page){
