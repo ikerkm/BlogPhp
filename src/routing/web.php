@@ -11,12 +11,12 @@ use FastRoute\Dispatcher;
                 $route->addRoute('GET','/s',['App\controllers\HomeController',"index"]);
                 $route->addRoute('GET','/w',['App\controllers\WhoController',"index"]);
                 $route->addRoute('GET','/increase',['App\controllers\HomeController',"sumatorio"]);
-                $route->addRoute('GET', '/register',["App\controllers\RegisterController",'index']);
-                $route->addRoute('POST', '/register',["App\controllers\RegisterController",'register']);
-                $route->addRoute('GET', '/login',["App\controllers\LoginController",'index']);
-                $route->addRoute('POST', '/login',["App\controllers\LoginController",'login']);
+                $route->addRoute('GET', '/register',["App\controllers\auth\RegisterController",'index']);
+                $route->addRoute('POST', '/register',["App\controllers\auth\RegisterController",'register']);
+                $route->addRoute('GET', '/login',["App\controllers\auth\LoginController",'index']);
+                $route->addRoute('POST', '/login',["App\controllers\auth\LoginController",'login']);
                 $route->addRoute('GET', '/dashboard',["App\controllers\DashBoardController",'index']);
-                $route->addRoute('GET','/logout',["App\controllers\LogoutController",'index']);
+                $route->addRoute('GET','/logout',["App\controllers\auth\LogoutController",'index']);
             }
 
         );

@@ -1,5 +1,6 @@
 <?php 
-namespace App\controllers;
+namespace App\controllers\auth;
+use App\controllers\Controller;
 use App\DoctrineManager;
 use Kint;
 use App\models\entities\User;
@@ -8,7 +9,7 @@ class LoginController extends Controller {
 private $error;
     public function index(){
         $this->error = null;
-        $this->viewManager->renderTemplate("Login.view.html",['error'=>$this->error]);
+        $this->viewManager->renderTemplate("auth/login.view.html",['error'=>$this->error]);
     }
 
     public function login(DoctrineManager $doctrine){
@@ -32,7 +33,7 @@ private $error;
 
    if (!$user_match) {
      $this->error="El usuario no eiste";
-       $this->viewManager->renderTemplate("Login.view.html",['error'=>$this->error,'email'=>$email]);
+       $this->viewManager->renderTemplate("auth/Login.view.html",['error'=>$this->error,'email'=>$email]);
     }
     $this->sessionManager->put('user',$user->email);
     $this->redirectTo('dashboard');
