@@ -2,6 +2,7 @@
 namespace App\controllers\auth;
 use App\controllers\Controller;
 use App\DoctrineManager;
+use App\VerificationManager;
 use Kint;
 class RegisterController extends Controller {
 
@@ -16,6 +17,8 @@ class RegisterController extends Controller {
         $name = $_POST['name'];
         $email = $_POST['email'];
         $password = $_POST['passwd'];
+
+
 
         $user = new \App\models\entities\User();
      //$user = $doctrine->em->getRepository(\App\models\entities\User::class);
