@@ -20,7 +20,8 @@ private $error;
         
         $user =new User();
      //$user = $doctrine->em->getRepository(\App\models\entities\User::class);
-  
+      $emailVerificator = $this->verificationManager->verifyEmail($email);
+      
      $user->email= $email;
      $user->password = sha1($password);
    // Kint::dump($user);

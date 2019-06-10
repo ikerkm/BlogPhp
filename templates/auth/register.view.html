@@ -6,13 +6,31 @@
         <form role="form" method="post" name="Register_Form" class="form-signin">
             <h3 class="form-signin-heading">Register</h3>
             <hr class="colorgraph"><br>
+            {%if error %}
+            <input type="text" class="form-control" value={{ name }} name="name" placeholder="Name" required=""
+                autofocus="" />
+            <input type="text" class="form-control" value={{ email }} name="email" placeholder="Email" required=""
+                autofocus="" />
+            {% endif %}
+            {%if error==null %}
             <input type="text" class="form-control" name="name" placeholder="Name" required="" autofocus="" />
             <input type="text" class="form-control" name="email" placeholder="Email" required="" autofocus="" />
+            {% endif %}
+
             <input type="password" class="form-control" name="passwd" placeholder="Password" required="" />
+            <input type="password" class="form-control" name="passwd2" placeholder="Repeat password" required="" />
 
             <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Register"
                 type="Submit">Register</button>
         </form>
+        {%if error %}
+        <div class="error">
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+
+        </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

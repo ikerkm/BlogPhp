@@ -1,5 +1,6 @@
 <?php
 namespace App\controllers;
+use App\VerificationManager;
 use App\ViewManager;
 use App\LogManager;
 use App\Sumador;
@@ -7,6 +8,7 @@ use App\SessionManager;
 use DI\Container;
 use App\DoctrineManager;
 abstract class Controller{
+    protected $verificationManager;
     protected $container;
     protected $viewManager;
     protected $logger;
@@ -14,6 +16,7 @@ abstract class Controller{
     protected $sessionManager;
     public function __construct(Container $container){
         $this->container = $container;
+        $this->verificationManager = $this->container->get(VerificationManager::class);
         $this->viewManager = $this->container->get(ViewManager::class);
         $this->logger = $this->container->get(LogManager::class);
         $this->logger->info("Clase ".get_class($this)." cargada");

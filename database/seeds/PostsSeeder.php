@@ -22,8 +22,8 @@ class PostsSeeder extends AbstractSeed
         for($i=0;$i<10;$i++){
             $data[]=[
                 'tittle'=>$faker->word,
-                'body'=>$faker->text,
-                'id_user'=>$faker->randomDigit  ,
+                'body'=>$faker->text(250),
+                'id_user'=>67,
                 'created_at'=>date('Y-m-d H:i:s'),
             ];
             
