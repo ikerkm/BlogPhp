@@ -13,6 +13,7 @@ use Twig;
             'debug' => true,  //Activa el var_dump en twigg(html)
             'cache' => dirname(__DIR__). '/cache/views'
         ]);
+    //    $this->twig
     }
 
    /* public function render($view, $args=[]){

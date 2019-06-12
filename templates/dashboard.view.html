@@ -15,19 +15,41 @@
 
         </tr>
     </thead>
-    <tbody>
+    <tbody class="td_body">
         {% for post in posts %}
-        <tr>
-            <th scope="row">{{ post.0 }}</th>
+        <tr class="post-content">
+            <th scope="row" class="id_post">{{ post.0 }}</th>
             <td>{{ post.1 }}</td>
             <td>{{ post.2 }}</td>
             <td>{{ post.3}} </td>
             <td><a class="btn btn-success" href="/edit/{{ post.0}}">~</a></td>
 
-            <td><a class="btn btn-danger" href="/delete/{{ post.0}}">-</a></td>
+            <td class="td_link_delete"><a data-toggle="modal" id="btn-delete" data-target="#deleteModal"
+                    class="btn btn-danger" the_title={{ post.1 }} href="/delete/{{ post.0}}">-</a></td>
 
         </tr>
         {% endfor %}
     </tbody>
 </table>
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a class="confirm_delete" class="btn btn-danger" href="">Confirm</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
