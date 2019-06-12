@@ -31,7 +31,7 @@ protected $body;
  * @ORM\Column(type="integer")
  */
 
- protected $id_user;
+ protected $idUser;
  /**
   * @ORM\Column(type="datetime")
   */

@@ -4,7 +4,7 @@ use App\DoctrineManager;
 use App\models\entities\Post;
 use App\services\PostsService;
 use Kint;
-class HomeController extends Controller{
+class HomeController extends ControllerAuth{
    
     public function index(){
      // $doctrineManager = $this->container->get(DoctrineManager::class);
@@ -20,7 +20,7 @@ class HomeController extends Controller{
         array_push($big_array,$tiny_array);
       }
     
-       $this ->viewManager->renderTemplate("index.view.html",['posts'=>$big_array]);
+       $this ->viewManager->renderTemplate("index.view.html",['posts'=>$big_array,'user'=>$this->email]);
       
         
 

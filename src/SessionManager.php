@@ -7,7 +7,10 @@ class SessionManager
     }
 
     public function get(string $variable){
-        return unserialize($_SESSION[$variable]);
+       if(!isset($_SESSION[$variable])){
+         return FALSE;
+       }else{
+        return unserialize($_SESSION[$variable]);}
     }
     public function remove(string $variable){
         unset($_SESSION[$variable]);

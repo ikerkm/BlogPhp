@@ -10,6 +10,7 @@ use Twig;
         $loader= new \Twig\Loader\FilesystemLoader(dirname(__DIR__).'/templates');
     
         $this-> twig = new \Twig\Environment($loader, [
+            'debug' => true,  //Activa el var_dump en twigg(html)
             'cache' => dirname(__DIR__). '/cache/views'
         ]);
     }

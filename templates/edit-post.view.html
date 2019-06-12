@@ -1,0 +1,22 @@
+{% extends "template.view.html" %}
+{% block body %}
+<h1>Form post</h1>
+<form role="form" method="post" name="Create-post" class="form-signin">
+    <h3 class="form-signin-heading">Create post</h3>
+    <hr class="colorgraph"><br>
+    {%if error %}
+    <input type="text" class="form-control" value={{ title }} name="tittle" placeholder="Title" required=""
+        autofocus="" />
+    <textarea" class="form-control" value={{ body }} name="body" placeholder="Body" required="" autofocus="">
+        </textarea>
+        {% endif %}
+        {%if error==null %}
+        <input type="text" class="form-control" name="tittle" placeholder="title" required="" autofocus="" />
+        <textarea class="form-control" name="body" placeholder="Body" required="" autofocus=""></textarea>
+        {% endif %}
+
+
+        <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Create post" type="Submit">Create
+            Post</button>
+</form>
+{% endblock %}

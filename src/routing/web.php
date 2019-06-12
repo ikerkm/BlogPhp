@@ -17,6 +17,11 @@ use FastRoute\Dispatcher;
                 $route->addRoute('POST', '/login',["App\controllers\auth\LoginController",'login']);
                 $route->addRoute('GET', '/dashboard',["App\controllers\DashBoardController",'index']);
                 $route->addRoute('GET','/logout',["App\controllers\auth\LogoutController",'index']);
+                $route->addRoute('GET','/create-post',["App\controllers\PostFormController",'index']);
+                $route->addRoute('POST','/create-post',["App\controllers\PostFormController",'create_post']);
+                $route->addRoute('GET','/delete/{id}',["App\controllers\PostFormController",'delete']);
+                $route->addRoute('GET','/edit/{id}',["App\controllers\PostFormController",'edit']);
+                $route->addRoute('POST','/edit/{id}',["App\controllers\PostFormController",'update']);
             }
 
         );

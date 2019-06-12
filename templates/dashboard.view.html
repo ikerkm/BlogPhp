@@ -1,6 +1,33 @@
-{% extends "template-logged.view.html" %}
+{% extends "template.view.html" %}
 {% block body %}
 <h1>SUPA BLOG Logged in</h1>
+<a class="btn btn-primary" href="/create-post">Añadir post</a>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">title</th>
+            <th scope="col">body</th>
+            <th scope="col">User</th>
+            <th scope="col">Edit</th>
 
+            <th scope="col">Delete</th>
 
+        </tr>
+    </thead>
+    <tbody>
+        {% for post in posts %}
+        <tr>
+            <th scope="row">{{ post.0 }}</th>
+            <td>{{ post.1 }}</td>
+            <td>{{ post.2 }}</td>
+            <td>{{ post.3}} </td>
+            <td><a class="btn btn-success" href="/edit/{{ post.0}}">~</a></td>
+
+            <td><a class="btn btn-danger" href="/delete/{{ post.0}}">-</a></td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
