@@ -43,6 +43,7 @@ class RouterManager{
 namespace App;
 use Kint;
 use DI\Container;
+
 class RouterManager
 {
     private $container;
@@ -58,11 +59,15 @@ class RouterManager
             switch($route[0]){
                 case \FastRoute\Dispatcher::NOT_FOUND:
                    header("HTTP/1.0 404 Not Found");
-                   echo "<h1>NOT FOUND </h1>";
+                 
+                 //  $notFound = $this->container->get(NotFoundController::class);
+                 //  $notFound->index();
+                 $this->container->call(["App\controllers\NotFoundController", "index"], [0]);
                 break;
                 case \FastRoute\Dispatcher::FOUND:
                    $controller = $route[1];
                    $method = $route[2];
+                   Kint::dump($controller, $method);
                    $this->container->call($controller, $method);
                 break;
                 case \FastRoute\Dispatcher::METHOD_NOT_ALLOWED:

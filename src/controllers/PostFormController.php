@@ -38,6 +38,7 @@ public function delete($id){
     } catch(\Exception $e) 
     {
         $this->logger->error($e->getMessage());
+        $this->redirectTo('dashboard');
     }
     
 }
